@@ -4,12 +4,9 @@ import { Events, MenuController, Nav, Platform } from 'ionic-angular';
 import { Splashscreen, StatusBar } from 'ionic-native';
 import { Storage } from '@ionic/storage';
 
-import { AccountPage } from '../pages/account/account';
 import { LoginPage } from '../pages/login/login';
 import { SignupPage } from '../pages/signup/signup';
 import { TabsPage } from '../pages/tabs/tabs';
-import { TutorialPage } from '../pages/tutorial/tutorial';
-import { SupportPage } from '../pages/support/support';
 
 import { ConferenceData } from '../providers/conference-data';
 import { UserData } from '../providers/user-data';
@@ -40,13 +37,10 @@ export class ConferenceApp {
     { title: 'About', component: TabsPage, index: 3, icon: 'information-circle' }
   ];
   loggedInPages: PageInterface[] = [
-    { title: 'Account', component: AccountPage, icon: 'person' },
-    { title: 'Support', component: SupportPage, icon: 'help' },
     { title: 'Logout', component: TabsPage, icon: 'log-out', logsOut: true }
   ];
   loggedOutPages: PageInterface[] = [
     { title: 'Login', component: LoginPage, icon: 'log-in' },
-    { title: 'Support', component: SupportPage, icon: 'help' },
     { title: 'Signup', component: SignupPage, icon: 'person-add' }
   ];
   rootPage: any;
@@ -69,7 +63,7 @@ export class ConferenceApp {
     this.userData.checkHasSeenTutorial().then((hasSeenTutorial) => {
       if (hasSeenTutorial === null) {
         // User has not seen tutorial
-        this.rootPage = TutorialPage;
+        //this.rootPage = TutorialPage;
       } else {
         // User has seen tutorial
         this.rootPage = TabsPage;
@@ -109,7 +103,7 @@ export class ConferenceApp {
   }
 
   openTutorial() {
-    this.nav.setRoot(TutorialPage);
+    //this.nav.setRoot(TutorialPage);
   }
 
   listenToLoginEvents() {
